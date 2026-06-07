@@ -62,8 +62,7 @@ if st.button("Submit Message"):
     else:
         st.error("Please fill in both name and message before submitting")
 
-# 5.Download My Profile
-profile_text = """
+# 5. Download My Profile
 st.header("📥 Download My Profile")
 profile_text = """
 Fu Yuanxin (Alison)
