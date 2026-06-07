@@ -1,24 +1,27 @@
 import streamlit as st
 import pandas as pd
 
-# set page
+# Page setting
 st.set_page_config(
     page_title="Fu Yuanxin | Personal Profile",
     page_icon="🌟",
     layout="wide"
 )
 
-# sidebar
+# Language selection dropdown
+st.selectbox("Select Language", ["English", "中文"])
+
+# Sidebar
 with st.sidebar:
     st.title("🧭 Navigation")
     st.success("Permanent Online Profile")
     st.info("Use the sidebar to explore interactive features")
 
-# personal title
+# Main title
 st.title("👋 Personal Profile — Fu Yuanxin")
 st.divider()
 
-# 1. basic message
+# Basic information
 col1, col2 = st.columns([1, 2])
 with col1:
     st.image("photo2.jpg", use_column_width=True, caption="My profile picture")
@@ -31,7 +34,7 @@ with col2:
     - **Personality**: Friendly, sincere, and proactive.
     """)
 
-# 2. skills
+# Skills table
 st.header("💻 Skills & Learning")
 skills_data = {
     "Skill": ["Python", "Data Visualization", "Streamlit", "Psychology"],
@@ -40,7 +43,7 @@ skills_data = {
 skills_df = pd.DataFrame(skills_data)
 st.table(skills_df)
 
-# 3. hobby select
+# Hobbies selection
 st.header("🎯 Hobbies & Interests")
 hobbies = st.multiselect(
     "What are your hobbies?",
@@ -52,7 +55,7 @@ if hobbies:
 else:
     st.warning("Please select at least one hobby to continue")
 
-# 4. interactive input
+# Message input area
 st.header("💬 Leave a Message")
 user_name = st.text_input("Your Name")
 user_message = st.text_area("Your Message")
@@ -62,7 +65,7 @@ if st.button("Submit Message"):
     else:
         st.error("Please fill in both name and message before submitting")
 
-# 5. Download My Profile
+# File download
 st.header("📥 Download My Profile")
 profile_text = """
 Fu Yuanxin (Alison)
@@ -76,7 +79,7 @@ st.download_button(
     mime="text/plain"
 )
 
-# photo display
+# Life photos
 st.header("📸 Life Moments")
 col1, col2 = st.columns(2)
 with col1:
@@ -84,6 +87,6 @@ with col1:
 with col2:
     st.image("photo3.jpg", caption="On the badminton court", use_column_width=True)
 
-# page end...
+# Footer
 st.divider()
 st.caption("✅ Built with Streamlit · Permanent Online")
