@@ -1,3 +1,5 @@
+# 放在每个分页最顶部 set_page_config 下方
+lang = st.session_state.get("lang", "English")
 import streamlit as st
 import pandas as pd
 
